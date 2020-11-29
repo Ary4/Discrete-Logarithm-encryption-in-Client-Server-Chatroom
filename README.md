@@ -5,5 +5,5 @@ DiscreteLog.cpp is an example of how our algorithm works.So,if its your first ti
 client1.py and server1.py is a pair program for server client 2way interaction(no other user can join in) .You can uncomment the code to incorporate it to store data in csv files which i wont recommend.
 client2-chatroom.py and server2-chatroom.py is an extension of above program with simple hosting a chatroom.
 If you are using windows,you might need to allow firewall access to python to host a port.(Remote host not found kind of error)
-If you can any question,ping me.
+If you have any question,ping me.
 
