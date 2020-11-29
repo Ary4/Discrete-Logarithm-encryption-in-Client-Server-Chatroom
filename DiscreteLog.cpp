@@ -84,7 +84,7 @@ class Alice{
 		y =	zk.power(g,x,p);
 		return y;
 	}
-	void peggyKnows(int g, int p, int i, Bob Bob){
+	void aliceKnows(int g, int p, int i, Bob Bob){
 		ZeroKnowldege zk ;
 		for(int j=1;j<=i;j++){
 			cout<<"Round: "<<j<<endl;
@@ -134,6 +134,6 @@ int main()
 		int iterations ;
 		cin>>iterations;
 		cout<<endl<<endl;
-		Alice.peggyKnows(g,p,iterations,Bob);
+		Alice.aliceKnows(g,p,iterations,Bob);
 		
 }
