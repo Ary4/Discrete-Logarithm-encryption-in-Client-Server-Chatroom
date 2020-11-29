@@ -1,0 +1,69 @@
+Slide 1: The project topic is discrete logarithm problem
+
+It is found that if p is a large prime number, there exists a g for which this is definitely true.
+g^x mod p
+in this case three, which has this important property
+that when raised to different exponents,
+the solution distributes uniformly around the clock.
+Three is known as the generator.
+If we raise three to any exponent x,
+then the solution is equally likely
+to be any integer between zero and 17.
+Now, the reverse procedure is hard.
+Say, given 12, find the exponent
+three needs to be raised to.
+This is called the discrete logarithm problem.
+And now we have our one-way function,
+easy to perform but hard to reverse.
+Given 12, we would have to resort
+to trial and error to find matching exponents.
+How hard is this?
+With small numbers it's easy,
+but if we use a prime modulus
+which is hundreds of digits long,
+it becomes impractical to solve.
+Even if you had access to all
+computational power on Earth,
+it could take thousands of years
+to run through all possibilities.
+So the strength of a one-way function
+is based on the time needed to reverse it.
+slide3: here 3 and 17 are such unique pair such that the solution are distributed uniformly alongly the clock .
+Here 3 is called as the generator, if we raise 3 to any exponent x mod 17..then the solution is equally likely to have any number from 
+0-17 with 1/16 probability.
+
+Slide 4:But the reverse procedure is hard.Say we want to find 3^x mod 17 =12
+SLide 5: So in the recent years,cryptographers have focused on DLP and used it derieved other algorithm like ElGamal encryption,Deffie-Hellman, Digital Signature Algorithm etc.
+It is used in conjuction with a pseudorandom generator to encrypt messages between people who have never met.Thus,we present an zero knowledge
+approach leveraging the asymmetry behind the discrete logrithm.
+slide 6:
+The basic idea here is that if b = 1, the prover gives a number to the verifier (V) that looks random (s = r + x(mod (p − 1))).
+ But V already knows h = Ar and B = Ax and can multiply these and compare them to As . We should be careful what is proved by that.
+ What V actually sees are h and s, and so what V knows is that s = dlog(h) + x(mod (p − 1)), where dlog(h) is the discrete log of h
+ relative to A. The verifier knows s and so do you, the prover. Now if you also know dlog(h), then its clear that you know x.
+ So it remains for you to convince the verifier that you know dlog(h). That’s where the random bit comes in. 
+If b = 0, you the prover just send s = r back to V. V then checks that h = Ar (mod p), i.e. that r is the discrete log of h. 
+So depending on the random bit, V gets either s or r but never both (because their difference is x). 
+Thus V gets no information about x. 
+
+You, the prover can try to cheat in one of two ways. If you dont know x, you can still pick a
+random r and send h = Ar
+(mod p) to V at the first step. If V picks b = 0, you are OK, because
+you can just send s = r at step 3, and V will be able to check that As = h(mod p). But if V picks
+b = 1 you are stuck because you dont know x, and you cant easily compute an s that will satisfy
+As = hB(mod p) because that would be equivalent to finding the discrete log of hB.
+
+
+On the other hand, you the prover might cheat by sending V a h whose discrete log dont know
+at step 1. A good candidate is h = A^s/B for some random s. If the verifier picks b = 1, you send
+this s and it will satisfy A^s = hB^b(mod p). But if the verifier picks b = 0, you are stuck because
+you dont know an r such that A^r = h(mod p).
+In either case, the verifier will discover that you cheated with 50% probability. So after k trials,
+the expected number of bits that were 0 is k/2 and if the verifier found that h = A^r on all of these,
+verifier would know that the probability of you cheating on a given round is less than 2
+−k/2
+.
+The probability of you cheating on the rounds where b = 1 is the same as the rounds where
+b = 0, because you have no control over the random bit. On the first round where b = 1, the
+verifier confirms that s = dlog(h) + x. Since the verifier almost certainly knows dlog(h), he
+almost certainly knows x. We can make that probability arbitrarily high by increasing k.
